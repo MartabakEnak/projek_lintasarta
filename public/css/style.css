@@ -1,117 +1,98 @@
 /* Anda dapat menempatkan kode ini di file resources/css/app.css */
 
 :root {
-    --dark-bg: #1e1e2d;
-    --dark-surface: #27293d;
-    --dark-text: #e0e0e0;
-    --primary-color: #007bff; /* Biru */
-    --success-color: #28a745; /* Hijau */
-    --warning-color: #ffc107; /* Kuning */
-    --info-color: #17a2b8; /* Biru Muda */
+    --light-bg: #f8f9fa; /* Background utama, sangat terang */
+    --light-surface: #ffffff; /* Warna permukaan untuk sidebar, tabel, dll. */
+    --dark-text: #212529; /* Warna teks utama, gelap */
+    --primary-color: #3498db; /* Biru muda yang elegan */
+    --accent-color: #e9ecef; /* Warna aksen untuk hover/highlight */
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --border-color: #dee2e6;
 }
 
 body {
-    background-color: var(--dark-bg);
+    background-color: var(--light-bg);
     color: var(--dark-text);
     font-family: "Inter", sans-serif;
+    margin: 0;
 }
 
-/* Sidebar Styling */
+/* Layout Utama */
 .main-layout {
     display: flex;
+    min-height: 100vh;
 }
 
+/* Sidebar */
 .sidebar {
     width: 250px;
-    background-color: var(--dark-surface);
+    background-color: var(--light-surface);
     color: var(--dark-text);
-    position: fixed;
-    height: 100vh;
-    padding: 1.5rem;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Pastikan sidebar di atas konten */
+    flex-shrink: 0;
+    padding: 20px 0;
 }
 
-.sidebar .sidebar-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
 }
 
-.sidebar .sidebar-header img {
-    height: 40px;
-    margin-right: 1rem;
+.sidebar-header img {
+    max-width: 100px;
+    margin-bottom: 10px;
 }
 
-.sidebar .sidebar-header h3 {
-    margin: 0;
+.sidebar-header h3 {
+    color: var(--dark-text);
     font-size: 1.5rem;
     font-weight: 700;
 }
 
-.sidebar .nav-group {
-    margin-bottom: 1.5rem;
+.nav-group {
+    margin-bottom: 20px;
 }
 
-.sidebar .nav-group-title {
-    color: #a0a0a0;
+.nav-group-title {
+    font-size: 14px;
     text-transform: uppercase;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    letter-spacing: 0.05rem;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    color: #6c757d;
 }
 
-.sidebar .nav-link {
+.nav-link {
     display: flex;
     align-items: center;
-    padding: 0.75rem 1rem;
+    padding: 10px 20px;
     color: var(--dark-text);
     text-decoration: none;
-    border-radius: 0.5rem;
     transition: background-color 0.2s ease;
 }
 
-.sidebar .nav-link.active,
-.sidebar .nav-link:hover {
-    background-color: #35384c;
-    color: #fff;
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--accent-color);
+    color: var(--dark-text);
 }
 
-.sidebar .nav-link i {
-    margin-right: 1rem;
-    font-size: 1.25rem;
-}
-
-/* Main Content Styling */
+/* Konten Utama */
 .content-wrapper {
-    margin-left: 250px; /* Lebar sidebar */
-    width: 100%;
-    padding: 2rem; /* Menambahkan padding di sekitar konten utama */
+    flex: 1;
+    padding: 2rem;
+    background-color: var(--light-bg);
 }
 
-/* General Layout and Components */
+/* Komponen */
 .container {
-    /* Padding di .content-wrapper sudah cukup, jadi ini tidak terlalu dibutuhkan, tapi tidak masalah */
-    /* padding-top: 2rem; */
-    /* padding-bottom: 2rem; */
+    max-width: 100%;
 }
 
 h2 {
     color: var(--dark-text);
     margin-bottom: 1rem;
-}
-
-.alert {
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.alert-success {
-    background-color: var(--success-color);
-    color: #fff;
-    border-color: #218838;
 }
 
 .btn {
@@ -129,7 +110,7 @@ h2 {
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -137,7 +118,8 @@ h2 {
     width: 100%;
     margin-bottom: 1rem;
     color: var(--dark-text);
-    background-color: var(--dark-surface);
+    background-color: var(--light-surface);
+    border: 1px solid var(--border-color);
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 0.75rem;
@@ -148,28 +130,24 @@ h2 {
 .table td {
     padding: 1rem;
     vertical-align: top;
-    border-top: 1px solid #3d3d52;
+    border-top: 1px solid var(--border-color);
 }
 
 .table thead.table-dark {
-    background-color: var(--dark-bg);
-    border-bottom: 2px solid #5a5a6e;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-bottom: none;
 }
 
 .table thead th {
     border-bottom: none;
-    color: #fff;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
 }
 
 .table tbody tr:hover {
-    background-color: #35384c;
-}
-
-.table td {
-    border-bottom: 1px solid #3d3d52;
+    background-color: var(--accent-color);
 }
 
 .table tbody tr:last-child td {
@@ -186,16 +164,15 @@ h2 {
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 0.375rem;
+    color: #fff;
 }
 
 .badge-active {
     background-color: var(--success-color);
-    color: #fff;
 }
 
 .badge-ok {
     background-color: var(--info-color);
-    color: #fff;
 }
 
 .form-control {
@@ -206,19 +183,17 @@ h2 {
     font-weight: 400;
     line-height: 1.5;
     color: var(--dark-text);
-    background-color: var(--dark-surface);
+    background-color: var(--light-surface);
     background-clip: padding-box;
-    border: 1px solid #3d3d52;
+    border: 1px solid var(--border-color);
     border-radius: 0.5rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .form-control:focus {
-    color: var(--dark-text);
-    background-color: var(--dark-surface);
-    border-color: #007bff;
+    border-color: var(--primary-color);
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
 }
 
 .mb-3 {

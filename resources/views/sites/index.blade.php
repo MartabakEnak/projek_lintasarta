@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="container">
-    <h2>Daftar Sites</h2>
-    <a href="{{ route('sites.create') }}" class="btn btn-primary mb-3">+ Add</a>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Daftar Sites</h2>
+        <a href="{{ route('sites.create') }}" class="btn btn-primary">+ Add</a>
+    </div>
 
     @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>

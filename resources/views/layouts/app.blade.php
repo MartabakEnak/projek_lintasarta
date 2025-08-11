@@ -13,17 +13,7 @@
         <div class="sidebar">
             <div class="sidebar-header">
                 <img src="{{ asset('path/to/your/logo.png') }}" alt="Logo">
-                <h3>netbox Community</h3>
-            </div>
-
-            <div class="nav-group">
-                <div class="nav-group-title">Organization</div>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-sitemap"></i> Organization
-                </a>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-boxes"></i> Racks
-                </a>
+                <h3>LintasArta</h3>
             </div>
 
             <div class="nav-group">
